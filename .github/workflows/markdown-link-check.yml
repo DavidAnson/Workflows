@@ -12,3 +12,5 @@ jobs:
         with:
           repository: DavidAnson/markdownlint-cli2
       - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-verbose-mode: yes
