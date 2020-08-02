@@ -18,7 +18,7 @@ jobs:
       - name: Install markdown-link-check
         run: npm install markdown-link-check --no-package-lock
       - name: Create config file
-        run: printf '{ "ignorePatterns":[ { "pattern":"/search\?q=" } ] }' > config.json
+        run: printf '{ "ignorePatterns":[ { "pattern":"^https://github.com/.*/search\\\\?q=" } ] }' > config.json
       - name: Run markdown-link-check
         run: find . -name '*.md' -not -path './node_modules/*' -not -path './test/*' -print0 | xargs -0 -n 1 ./node_modules/.bin/markdown-link-check --verbose --config config.json
   markdownlint-cli2:
