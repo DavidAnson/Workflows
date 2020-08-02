@@ -1,7 +1,10 @@
 name: Check links in Markdown files
 
 on:
+  pull_request:
   push:
+  schedule:
+    - cron: '30 12 * * *'
   workflow_dispatch:
 
 jobs:
@@ -15,7 +18,7 @@ jobs:
       - name: Install markdown-link-check
         run: npm install markdown-link-check --no-package-lock
       - name: Run markdown-link-check
-        run: find . -name \*.md -not -path ./node_modules/\* -not -path ./test/\* -exec ./node_modules/.bin/markdown-link-check -v {} \;
+        run: find . -name \*.md -not -path ./node_modules/\* -not -path ./test/\* -exec ./node_modules/.bin/markdown-link-check -v {} \+
   markdownlint-cli2:
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +29,7 @@ jobs:
       - name: Install markdown-link-check
         run: npm install markdown-link-check --no-package-lock
       - name: Run markdown-link-check
-        run: find . -name \*.md -not -path ./node_modules/\* -exec ./node_modules/.bin/markdown-link-check -v {} \;
+        run: find . -name \*.md -not -path ./node_modules/\* -not -path ./test/\* -exec ./node_modules/.bin/markdown-link-check -v {} \+
   vscode-markdownlint:
     runs-on: ubuntu-latest
     steps:
@@ -37,4 +40,4 @@ jobs:
       - name: Install markdown-link-check
         run: npm install markdown-link-check --no-package-lock
       - name: Run markdown-link-check
-        run: find . -name \*.md -not -path ./node_modules/\* -exec ./node_modules/.bin/markdown-link-check -v {} \;
+        run: find . -name \*.md -not -path ./node_modules/\* -not -path ./test/\* -exec ./node_modules/.bin/markdown-link-check -v {} \+
