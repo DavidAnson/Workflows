@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "markdownlint-cli2": "*"
+  },
+  "scripts": {
+    "test": "markdownlint-cli2 ../README.md"
+  },
+  "private": true
+}
