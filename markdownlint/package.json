@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "markdownlint": "*"
+  },
+  "scripts": {
+    "test": "node smoke-test.js"
+  },
+  "private": true
+}

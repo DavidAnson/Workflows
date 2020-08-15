@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "markdownlint-cli2": "*",
-    "markdownlint-cli2-formatter-json": "0.0.1",
-    "markdownlint-cli2-formatter-junit": "0.0.1"
+    "markdownlint-cli2-formatter-json": "*",
+    "markdownlint-cli2-formatter-junit": "*"
   },
   "scripts": {
     "test": "markdownlint-cli2 ../README.md"

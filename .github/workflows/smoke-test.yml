@@ -8,6 +8,17 @@ on:
   workflow_dispatch:
 
 jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+      - name: Install Dependencies
+        run: cd markdownlint && npm install --no-package-lock
+      - name: Run Tests
+        run: cd markdownlint && npm run test
   markdownlint-cli2:
     runs-on: ubuntu-latest
     steps:
