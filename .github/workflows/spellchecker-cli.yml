@@ -15,7 +15,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: DavidAnson/markdownlint
+      - name: Clone Workflows repository
+        uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/Workflows
+          path: Workflows
       - name: Install spellchecker-cli
         run: npm install spellchecker-cli --no-package-lock
       - name: Run spellchecker-cli
-        run: ./node_modules/.bin/spellchecker --files '*.md' --files 'doc/*.md' --files 'helpers/*.md'
+        run: ./node_modules/.bin/spellchecker --files '*.md' 'doc/*.md' 'helpers/*.md' --dictionaries Workflows/shared-dictionary.txt
