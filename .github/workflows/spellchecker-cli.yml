@@ -1,0 +1,21 @@
+name: Check spelling in Markdown files
+
+on:
+  pull_request:
+  push:
+  schedule:
+    - cron: '30 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/markdownlint
+      - name: Install spellchecker-cli
+        run: npm install spellchecker-cli --no-package-lock
+      - name: Run spellchecker-cli
+        run: ./node_modules/.bin/spellchecker --files '*.md' --files 'doc/*.md' --files 'helpers/*.md'
