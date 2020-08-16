@@ -24,3 +24,19 @@ jobs:
         run: npm install spellchecker-cli --no-package-lock
       - name: Run spellchecker-cli
         run: ./node_modules/.bin/spellchecker --files '*.md' 'doc/*.md' 'helpers/*.md' --dictionaries Workflows/shared-dictionary.txt
+  vscode-markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/vscode-markdownlint
+      - name: Clone Workflows repository
+        uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/Workflows
+          path: Workflows
+      - name: Install spellchecker-cli
+        run: npm install spellchecker-cli --no-package-lock
+      - name: Run spellchecker-cli
+        run: ./node_modules/.bin/spellchecker --files '*.md' --dictionaries Workflows/shared-dictionary.txt
