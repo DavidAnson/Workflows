@@ -18,6 +18,6 @@ jobs:
       - name: Install markdownlint CLIs
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
       - name: Run markdownlint-cli
-        run: markdownlint '**/*.md'
+        run: ./node_modules/.bin/markdownlint '**/*.md'
       - name: Run markdownlint-cli2
-        run: markdownlint-cli2 '**/*.md'
+        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md'
