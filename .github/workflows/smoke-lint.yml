@@ -45,6 +45,8 @@ jobs:
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint README.md CONTRIBUTING.md 'docs/*' --ignore docs/CNAME --ignore node_modules
+      - name: Clone configuration file
+        run: cp .markdownlintrc .markdownlint-cli2.jsonc
       - name: Run markdownlint-cli2
         run: ./node_modules/.bin/markdownlint-cli2 README.md CONTRIBUTING.md 'docs/*' '#docs/CNAME' '#node_modules'
   pi-hole-docs:
