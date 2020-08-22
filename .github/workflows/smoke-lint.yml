@@ -1,0 +1,23 @@
+name: Smoke lint real-world repositories
+
+on:
+  pull_request:
+  push:
+  schedule:
+    - cron: '30 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  pi-hole-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+        with:
+          repository: pi-hole/docs
+      - name: Install markdownlint CLIs
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+      - name: Run markdownlint-cli
+        run: markdownlint '**/*.md'
+      - name: Run markdownlint-cli2
+        run: markdownlint-cli2 '**/*.md'
