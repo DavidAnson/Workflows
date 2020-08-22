@@ -8,6 +8,19 @@ on:
   workflow_dispatch:
 
 jobs:
+  dotnet-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+        with:
+          repository: dotnet/docs
+      - name: Install markdownlint CLIs
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+      - name: Run markdownlint-cli
+        run: ./node_modules/.bin/markdownlint '**/*.md' --ignore 'samples/**/*.md' --ignore node_modules
+      - name: Run markdownlint-cli2
+        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#samples/**/*.md' '#node_modules'
   eslint-eslint:
     runs-on: ubuntu-latest
     steps:
@@ -33,7 +46,7 @@ jobs:
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint README.md CONTRIBUTING.md 'docs/*' --ignore docs/CNAME --ignore node_modules
       - name: Run markdownlint-cli2
-        run: ./node_modules/.bin/markdownlint-cli2 README.md CONTRIBUTING.md 'docs/* '#docs/CNAME' '#node_modules'
+        run: ./node_modules/.bin/markdownlint-cli2 README.md CONTRIBUTING.md 'docs/*' '#docs/CNAME' '#node_modules'
   pi-hole-docs:
     runs-on: ubuntu-latest
     steps:
