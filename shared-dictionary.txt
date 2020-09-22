@@ -1,6 +1,7 @@
 .markdownlintignore
 addin
 APIs
+async
 atx
 ATX
 atx-style
@@ -62,6 +63,7 @@ mdl
 minified
 minimatch
 MkDocs
+namespace
 Neovim
 no-bare-urls
 no-blanks-blockquote
