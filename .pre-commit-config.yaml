@@ -4,6 +4,10 @@ repos:
   hooks:
   - id: check-json
   - id: check-yaml
+- repo: https://github.com/DavidAnson/markdownlint-cli2
+  rev: ef97bd175a5b6f63d065634d09e7eccdd4715b0e
+  hooks:
+  - id: markdownlint-cli2
 - repo: https://github.com/igorshubovych/markdownlint-cli
   rev: v0.24.0
   hooks:
