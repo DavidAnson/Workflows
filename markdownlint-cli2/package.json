@@ -2,7 +2,9 @@
   "dependencies": {
     "markdownlint-cli2": "*",
     "markdownlint-cli2-formatter-json": "*",
-    "markdownlint-cli2-formatter-junit": "*"
+    "markdownlint-cli2-formatter-junit": "*",
+    "markdownlint-cli2-formatter-pretty": "*",
+    "markdownlint-cli2-formatter-summarize": "*"
   },
   "scripts": {
     "test": "markdownlint-cli2 ../README.md"
