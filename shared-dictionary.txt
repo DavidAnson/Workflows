@@ -50,6 +50,7 @@ macOS
 markdownlint
 markdownlint-cli
 markdownlint-cli2
+markdownlint-cli2-action
 markdownlint-cli2-formatter
 markdownlint-cli2-formatter-default
 markdownlint-cli2-formatter-json
