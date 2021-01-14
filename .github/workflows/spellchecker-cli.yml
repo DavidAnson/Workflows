@@ -40,6 +40,22 @@ jobs:
         run: npm install spellchecker-cli --no-package-lock
       - name: Run spellchecker-cli
         run: ./node_modules/.bin/spellchecker --files '*.md' 'formatter-default/*.md' 'formatter-json/*.md' 'formatter-junit/*.md' 'formatter-pretty/*.md' 'formatter-summarize/*.md' --dictionaries Workflows/shared-dictionary.txt
+  markdownlint-cli2-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/markdownlint-cli2-action
+      - name: Clone Workflows repository
+        uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/Workflows
+          path: Workflows
+      - name: Install spellchecker-cli
+        run: npm install spellchecker-cli --no-package-lock
+      - name: Run spellchecker-cli
+        run: ./node_modules/.bin/spellchecker --files '*.md' --dictionaries Workflows/shared-dictionary.txt
   vscode-markdownlint:
     runs-on: ubuntu-latest
     steps:
