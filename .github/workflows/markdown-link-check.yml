@@ -32,6 +32,17 @@ jobs:
         run: npm install markdown-link-check --no-package-lock
       - name: Run markdown-link-check
         run: find . -name '*.md' -not -path './node_modules/*' -not -path './test/*' -print0 | xargs -0 -n 1 ./node_modules/.bin/markdown-link-check -v
+  markdownlint-cli2-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/markdownlint-cli2-action  
+      - name: Install markdown-link-check
+        run: npm install markdown-link-check --no-package-lock
+      - name: Run markdown-link-check
+        run: find . -name '*.md' -not -path './node_modules/*' -print0 | xargs -0 -n 1 ./node_modules/.bin/markdown-link-check -v
   vscode-markdownlint:
     runs-on: ubuntu-latest
     steps:
