@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: DavidAnson/markdownlint
+          ref: next
       - name: Clone Workflows repository
         uses: actions/checkout@v2
         with:
@@ -31,6 +32,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: DavidAnson/markdownlint-cli2
+          ref: next
       - name: Clone Workflows repository
         uses: actions/checkout@v2
         with:
@@ -63,6 +65,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: DavidAnson/vscode-markdownlint
+          ref: next
       - name: Clone Workflows repository
         uses: actions/checkout@v2
         with:

@@ -12,6 +12,7 @@ blockquote
 blockquotes
 Boostnote
 br_spaces
+changelogs
 CLI
 coc-markdownlint
 codespan
