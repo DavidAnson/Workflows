@@ -24,7 +24,7 @@ jobs:
       - name: Install spellchecker-cli
         run: npm install spellchecker-cli --no-package-lock
       - name: Run spellchecker-cli
-        run: ./node_modules/.bin/spellchecker --files '*.md' 'doc/*.md' 'helpers/*.md' --dictionaries Workflows/shared-dictionary.txt
+        run: ./node_modules/.bin/spellchecker --files '*.md' 'doc/*.md' 'helpers/*.md' --dictionaries Workflows/shared-dictionary.txt --plugins spell repeated-words syntax-mentions syntax-urls
   markdownlint-cli2:
     runs-on: ubuntu-latest
     steps:
