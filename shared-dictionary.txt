@@ -86,6 +86,7 @@ pandoc
 Pandoc
 Params
 parsers
+pre-commit
 Reactable
 README
 reimplement
