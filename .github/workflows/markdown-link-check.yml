@@ -38,7 +38,7 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v2
         with:
-          repository: DavidAnson/markdownlint-cli2-action  
+          repository: DavidAnson/markdownlint-cli2-action
       - name: Install markdown-link-check
         run: npm install markdown-link-check --no-package-lock
       - name: Run markdown-link-check
