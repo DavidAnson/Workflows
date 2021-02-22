@@ -21,7 +21,7 @@ jobs:
           paths: "**/*.md"
           directoryListing: true
           markdown: true
-          linksToSkip: "node_modules/, test/, ^https://github.com/.*/search\\?q="
+          linksToSkip: "test/, ^https://github.com/.*/search\\?q="
   markdownlint-cli2:
     runs-on: ubuntu-latest
     steps:
@@ -35,7 +35,20 @@ jobs:
           paths: "**/*.md"
           directoryListing: true
           markdown: true
-          linksToSkip: "node_modules/, test/"
+          linksToSkip: "test/"
+  markdownlint-cli2-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/markdownlint-cli2-action
+      - name: Run linkinator
+        uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: "**/*.md"
+          directoryListing: true
+          markdown: true
   vscode-markdownlint:
     runs-on: ubuntu-latest
     steps:
@@ -49,4 +62,3 @@ jobs:
           paths: "**/*.md"
           directoryListing: true
           markdown: true
-          linksToSkip: "node_modules/"

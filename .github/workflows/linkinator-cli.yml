@@ -30,6 +30,17 @@ jobs:
         run: npm install linkinator --no-package-lock
       - name: Run linkinator
         run: ./node_modules/.bin/linkinator '**/*.md' --directory-listing --markdown --skip 'node_modules/ test/'
+  markdownlint-cli2-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/markdownlint-cli2-action
+      - name: Install linkinator
+        run: npm install linkinator --no-package-lock
+      - name: Run linkinator
+        run: ./node_modules/.bin/linkinator '**/*.md' --directory-listing --markdown --skip 'node_modules/'
   vscode-markdownlint:
     runs-on: ubuntu-latest
     steps:
