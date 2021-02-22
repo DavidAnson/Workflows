@@ -18,7 +18,7 @@ jobs:
       - name: Install linkinator
         run: npm install linkinator --no-package-lock
       - name: Run linkinator
-        run: ./node_modules/.bin/linkinator '**/*.md' --markdown --skip 'node_modules/ test/ ^https://github.com/.*/search\?q= lib style'
+        run: ./node_modules/.bin/linkinator '**/*.md' --directory-listing --markdown --skip 'node_modules/ test/ ^https://github.com/.*/search\?q='
   markdownlint-cli2:
     runs-on: ubuntu-latest
     steps:
@@ -29,7 +29,7 @@ jobs:
       - name: Install linkinator
         run: npm install linkinator --no-package-lock
       - name: Run linkinator
-        run: ./node_modules/.bin/linkinator '**/*.md' --markdown --skip 'node_modules/ test/'
+        run: ./node_modules/.bin/linkinator '**/*.md' --directory-listing --markdown --skip 'node_modules/ test/'
   vscode-markdownlint:
     runs-on: ubuntu-latest
     steps:
@@ -40,4 +40,4 @@ jobs:
       - name: Install linkinator
         run: npm install linkinator --no-package-lock
       - name: Run linkinator
-        run: ./node_modules/.bin/linkinator '**/*.md' --markdown --skip 'node_modules/'
+        run: ./node_modules/.bin/linkinator '**/*.md' --directory-listing --markdown --skip 'node_modules/'

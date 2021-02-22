@@ -19,8 +19,9 @@ jobs:
         uses: JustinBeckwith/linkinator-action@v1
         with:
           paths: "**/*.md"
+          directoryListing: true
           markdown: true
-          linksToSkip: "node_modules/,test/,^https://github.com/.*/search\\?q=,lib,style"
+          linksToSkip: "node_modules/, test/, ^https://github.com/.*/search\\?q="
   markdownlint-cli2:
     runs-on: ubuntu-latest
     steps:
@@ -32,8 +33,9 @@ jobs:
         uses: JustinBeckwith/linkinator-action@v1
         with:
           paths: "**/*.md"
+          directoryListing: true
           markdown: true
-          linksToSkip: "node_modules/,test/"
+          linksToSkip: "node_modules/, test/"
   vscode-markdownlint:
     runs-on: ubuntu-latest
     steps:
@@ -45,5 +47,6 @@ jobs:
         uses: JustinBeckwith/linkinator-action@v1
         with:
           paths: "**/*.md"
+          directoryListing: true
           markdown: true
           linksToSkip: "node_modules/"
