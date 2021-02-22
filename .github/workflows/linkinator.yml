@@ -1,0 +1,52 @@
+name: Check links in Markdown files (linkinator)
+
+on:
+  pull_request:
+  push:
+  schedule:
+    - cron: '30 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/markdownlint
+      - uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: "**/*.md"
+          directoryListing: true
+          linksToSkip: "test/, ^https://github.com/.*/search\\?q="
+  markdownlint-cli2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/markdownlint-cli2
+      - uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: "**/*.md"
+          directoryListing: true
+          linksToSkip: "test/"
+  markdownlint-cli2-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/markdownlint-cli2-action
+      - uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: "**/*.md"
+          directoryListing: true
+  vscode-markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: DavidAnson/vscode-markdownlint
+      - uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: "**/*.md"
+          directoryListing: true
