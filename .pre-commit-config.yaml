@@ -5,7 +5,7 @@ repos:
   - id: check-json
   - id: check-yaml
 - repo: https://github.com/DavidAnson/markdownlint-cli2
-  rev: v0.0.13
+  rev: v0.0.15
   hooks:
   - id: markdownlint-cli2
 - repo: https://github.com/igorshubovych/markdownlint-cli
