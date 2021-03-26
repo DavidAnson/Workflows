@@ -97,6 +97,7 @@ single-h1
 subdirectories
 sublist
 Super-Linter
+suppressions
 TestCafe
 TOML
 trimLeft
