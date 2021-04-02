@@ -38,6 +38,6 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
       - name: Install Dependencies
-        run: cd markdownlint-cli2 && sudo npm install --global --no-package-lock markdownlint-cli2@0.0.15 markdownlint-cli2-formatter-json markdownlint-cli2-formatter-junit markdownlint-cli2-formatter-pretty markdownlint-cli2-formatter-summarize
+        run: cd markdownlint-cli2 && sudo npm install --global --no-package-lock markdownlint-cli2 markdownlint-cli2-formatter-json markdownlint-cli2-formatter-junit markdownlint-cli2-formatter-pretty markdownlint-cli2-formatter-summarize
       - name: Run Tests
         run: cd markdownlint-cli2 && npm run test
