@@ -11,6 +11,7 @@ backticks
 blockquote
 blockquotes
 Boostnote
+br
 br_spaces
 changelogs
 CLI
