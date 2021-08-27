@@ -24,6 +24,7 @@ config
 Config
 config.
 CustomRules
+davidanson
 docs-util
 ES6
 ESLint
