@@ -43,7 +43,9 @@ jobs:
         run: cd markdownlint-cli2 && npm run test
   markdownlint-cli2-container:
     runs-on: ubuntu-latest
-    container: davidanson/markdownlint-cli2:0.3.0
+    container:
+      image: davidanson/markdownlint-cli2:0.3.0
+      options: -u root
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
