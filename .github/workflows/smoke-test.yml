@@ -1,4 +1,4 @@
-name: Smoke test packages
+name: Smoke test packages and container images
 
 on:
   pull_request:
@@ -41,3 +41,13 @@ jobs:
         run: cd markdownlint-cli2 && sudo npm install --global --no-package-lock markdownlint-cli2 markdownlint-cli2-formatter-json markdownlint-cli2-formatter-junit markdownlint-cli2-formatter-pretty markdownlint-cli2-formatter-summarize
       - name: Run Tests
         run: cd markdownlint-cli2 && npm run test
+  markdownlint-cli2-container:
+    runs-on: ubuntu-latest
+    container: davidanson/markdownlint-cli2:0.3.0
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Lint
+        run: markdownlint-cli2 README.md
+      - name: Lint and fix
+        run: markdownlint-cli2-fix README.md
