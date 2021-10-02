@@ -44,7 +44,7 @@ jobs:
   markdownlint-cli2-container:
     runs-on: ubuntu-latest
     container:
-      image: davidanson/markdownlint-cli2:0.3.1
+      image: davidanson/markdownlint-cli2:0.3.2
       options: -u root
     steps:
       - name: Clone repository
