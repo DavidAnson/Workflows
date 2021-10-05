@@ -22,7 +22,7 @@ jobs:
           repository: DavidAnson/Workflows
           path: Workflows
       - name: Install spellchecker-cli
-        run: npm install spellchecker-cli --no-package-lock
+        run: npm install spellchecker-cli --no-package-lock --production
       - name: Run spellchecker-cli
         run: ./node_modules/.bin/spellchecker --files '*.md' 'doc/*.md' 'helpers/*.md' --dictionaries Workflows/shared-dictionary.txt --plugins spell repeated-words syntax-mentions syntax-urls
   markdownlint-cli2:
@@ -39,7 +39,7 @@ jobs:
           repository: DavidAnson/Workflows
           path: Workflows
       - name: Install spellchecker-cli
-        run: npm install spellchecker-cli --no-package-lock
+        run: npm install spellchecker-cli --no-package-lock --production
       - name: Run spellchecker-cli
         run: ./node_modules/.bin/spellchecker --files '*.md' 'formatter-default/*.md' 'formatter-json/*.md' 'formatter-junit/*.md' 'formatter-pretty/*.md' 'formatter-summarize/*.md' --dictionaries Workflows/shared-dictionary.txt
   markdownlint-cli2-action:
@@ -55,7 +55,7 @@ jobs:
           repository: DavidAnson/Workflows
           path: Workflows
       - name: Install spellchecker-cli
-        run: npm install spellchecker-cli --no-package-lock
+        run: npm install spellchecker-cli --no-package-lock --production
       - name: Run spellchecker-cli
         run: ./node_modules/.bin/spellchecker --files '*.md' --dictionaries Workflows/shared-dictionary.txt
   vscode-markdownlint:
@@ -72,6 +72,6 @@ jobs:
           repository: DavidAnson/Workflows
           path: Workflows
       - name: Install spellchecker-cli
-        run: npm install spellchecker-cli --no-package-lock
+        run: npm install spellchecker-cli --no-package-lock --production
       - name: Run spellchecker-cli
         run: ./node_modules/.bin/spellchecker --files '*.md' --dictionaries Workflows/shared-dictionary.txt

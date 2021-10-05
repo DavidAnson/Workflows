@@ -16,7 +16,7 @@ jobs:
         with:
           repository: dotnet/docs
       - name: Install markdownlint CLIs
-        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint '**/*.md' --ignore 'samples/**/*.md' --ignore node_modules
       - name: Run markdownlint-cli2
@@ -35,7 +35,7 @@ jobs:
         with:
           repository: eslint/eslint
       - name: Install markdownlint CLIs
-        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint 'docs/**/*.md' --ignore node_modules
       - name: Run markdownlint-cli2
@@ -53,7 +53,7 @@ jobs:
         with:
           repository: mkdocs/mkdocs
       - name: Install markdownlint CLIs
-        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint README.md CONTRIBUTING.md 'docs/*' --ignore docs/CNAME --ignore node_modules
       - name: Clone configuration file
@@ -76,7 +76,7 @@ jobs:
         with:
           repository: pi-hole/docs
       - name: Install markdownlint CLIs
-        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint '**/*.md' --ignore node_modules
       - name: Run markdownlint-cli2
