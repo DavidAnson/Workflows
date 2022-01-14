@@ -24,6 +24,7 @@ config
 Config
 config.
 CustomRules
+CVE-2022-21670
 davidanson
 docs-util
 ES6
