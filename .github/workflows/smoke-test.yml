@@ -54,4 +54,4 @@ jobs:
       - name: Lint and fix
         run: markdownlint-cli2-fix README.md
       - name: Lint with config
-        run: markdownlint-cli2-config .markdownlint-cli2.jsonc README.md
+        run: markdownlint-cli2-config configuration/.markdownlint-cli2.jsonc README.md
