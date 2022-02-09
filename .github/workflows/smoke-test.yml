@@ -66,3 +66,17 @@ jobs:
         run: markdownlint-cli2-fix README.md
       - name: Lint with config
         run: markdownlint-cli2-config configuration/.markdownlint-cli2.jsonc README.md
+  markdownlint-cli-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Lint via Docker
+        run: docker run -v $PWD:/workdir ghcr.io/igorshubovych/markdownlint-cli:latest README.md
+  markdownlint-cli2-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Lint via Docker
+        run: docker run -v $PWD:/workdir davidanson/markdownlint-cli2:0.4.0 README.md
