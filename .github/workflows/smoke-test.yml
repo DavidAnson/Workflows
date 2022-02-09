@@ -72,7 +72,7 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v2
       - name: Lint via Docker
-        run: docker run -v $PWD:/workdir ghcr.io/igorshubovych/markdownlint-cli:latest README.md
+        run: docker run -v $PWD:/workdir ghcr.io/igorshubovych/markdownlint-cli:master README.md
   markdownlint-cli2-docker:
     runs-on: ubuntu-latest
     steps:
