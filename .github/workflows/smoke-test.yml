@@ -41,6 +41,17 @@ jobs:
         run: cd markdownlint-cli2 && sudo npm install --global --no-package-lock --production markdownlint-cli2 markdownlint-cli2-formatter-json markdownlint-cli2-formatter-junit markdownlint-cli2-formatter-pretty markdownlint-cli2-formatter-summarize
       - name: Run Tests
         run: cd markdownlint-cli2 && npm run test
+  markdownlint-cli-container:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/igorshubovych/markdownlint-cli:master
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Lint
+        run: markdownlint README.md
+      - name: Lint and fix
+        run: markdownlint --fix README.md
   markdownlint-cli2-container:
     runs-on: ubuntu-latest
     container:
