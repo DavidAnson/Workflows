@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: DavidAnson/markdownlint
           ref: next
       - name: Clone Workflows repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: DavidAnson/Workflows
           path: Workflows
@@ -29,12 +29,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: DavidAnson/markdownlint-cli2
           ref: next
       - name: Clone Workflows repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: DavidAnson/Workflows
           path: Workflows
@@ -46,11 +46,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: DavidAnson/markdownlint-cli2-action
       - name: Clone Workflows repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: DavidAnson/Workflows
           path: Workflows
@@ -62,12 +62,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: DavidAnson/vscode-markdownlint
           ref: next
       - name: Clone Workflows repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: DavidAnson/Workflows
           path: Workflows

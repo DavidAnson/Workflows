@@ -11,7 +11,7 @@ jobs:
   markdownlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: DavidAnson/markdownlint
           ref: next
@@ -23,7 +23,7 @@ jobs:
   markdownlint-cli2:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: DavidAnson/markdownlint-cli2
           ref: next
@@ -35,7 +35,7 @@ jobs:
   markdownlint-cli2-action:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: DavidAnson/markdownlint-cli2-action
       - uses: JustinBeckwith/linkinator-action@v1
@@ -45,7 +45,7 @@ jobs:
   vscode-markdownlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: DavidAnson/vscode-markdownlint
           ref: next
