@@ -11,6 +11,10 @@ repos:
   - id: markdownlint-cli2-fix
   - id: markdownlint-cli2-config
     args: [configuration/.markdownlint-cli2.jsonc]
+  - id: markdownlint-cli2-docker
+  - id: markdownlint-cli2-fix-docker
+  - id: markdownlint-cli2-config-docker
+    args: [configuration/.markdownlint-cli2.jsonc]
 - repo: https://github.com/igorshubovych/markdownlint-cli
   rev: master
   hooks:
