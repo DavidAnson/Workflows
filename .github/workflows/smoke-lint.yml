@@ -158,7 +158,8 @@ jobs:
       - name: Install markdownlint CLIs
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
       - name: Update configuration file
-        run: echo "$(jq '. += { "emphasis-style": false }' .markdownlint.json)" > .markdownlint.json
+        run: |
+          echo "$(jq '. += { "emphasis-style": false }' .markdownlint.json)" > .markdownlint.json
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint 'src/**/*.md' --ignore node_modules
       - name: Run markdownlint-cli2
