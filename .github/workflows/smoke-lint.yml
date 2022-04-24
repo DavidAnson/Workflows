@@ -116,6 +116,8 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: webhintio/hint
+      - name: Delete package.json for minimal install
+        run: rm package.json
       - name: Install markdownlint CLIs
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
       - name: Run markdownlint-cli
@@ -123,7 +125,7 @@ jobs:
       - name: Clone configuration file
         run: cp .markdownlintrc .markdownlint.jsonc
       - name: Run markdownlint-cli2
-        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' --ignore '**/CHANGELOG.md' '#node_modules'
+        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#**/CHANGELOG.md' '#node_modules'
       - uses: DavidAnson/markdownlint-cli2-action@v5
         with:
           globs: |
