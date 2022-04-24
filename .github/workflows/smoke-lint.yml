@@ -109,3 +109,60 @@ jobs:
           globs: |
             **/*.md
             !node_modules
+  webhintio-hint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          repository: webhintio/hint
+      - name: Install markdownlint CLIs
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+      - name: Run markdownlint-cli
+        run: ./node_modules/.bin/markdownlint '**/*.md' --ignore '**/CHANGELOG.md' --ignore node_modules
+      - name: Clone configuration file
+        run: cp .markdownlintrc .markdownlint.jsonc
+      - name: Run markdownlint-cli2
+        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' --ignore '**/CHANGELOG.md' '#node_modules'
+      - uses: DavidAnson/markdownlint-cli2-action@v5
+        with:
+          globs: |
+            **/*.md
+            !**/CHANGELOG.md
+            !node_modules
+  webpack-webpack-js-org:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          repository: webpack/webpack.js.org
+      - name: Install markdownlint CLIs
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+      - name: Run markdownlint-cli
+        run: ./node_modules/.bin/markdownlint '**/*.md' --ignore node_modules
+      - name: Run markdownlint-cli2
+        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#node_modules'
+      - uses: DavidAnson/markdownlint-cli2-action@v5
+        with:
+          globs: |
+            **/*.md
+            !node_modules
+  v8-v8-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          repository: v8/v8.dev
+      - name: Install markdownlint CLIs
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+      - name: Run markdownlint-cli
+        run: ./node_modules/.bin/markdownlint 'src/**/*.md' --ignore node_modules
+      - name: Run markdownlint-cli2
+        run: ./node_modules/.bin/markdownlint-cli2 'src/**/*.md' '#node_modules'
+      - uses: DavidAnson/markdownlint-cli2-action@v5
+        with:
+          globs: |
+            src/**/*.md
+            !node_modules
