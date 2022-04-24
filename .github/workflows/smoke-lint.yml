@@ -137,8 +137,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: webpack/webpack.js.org
+      - name: Delete package.json for minimal install
+        run: rm package.json
       - name: Install markdownlint CLIs
-        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --force
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint '**/*.md' --ignore node_modules
       - name: Run markdownlint-cli2
