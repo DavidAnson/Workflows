@@ -138,7 +138,7 @@ jobs:
         with:
           repository: webpack/webpack.js.org
       - name: Install markdownlint CLIs
-        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --force
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint '**/*.md' --ignore node_modules
       - name: Run markdownlint-cli2
@@ -157,6 +157,8 @@ jobs:
           repository: v8/v8.dev
       - name: Install markdownlint CLIs
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+      - name: Update configuration file
+        run: echo "$(jq '. += { "emphasis-style": false }' .markdownlint.json)" > .markdownlint.json
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint 'src/**/*.md' --ignore node_modules
       - name: Run markdownlint-cli2
