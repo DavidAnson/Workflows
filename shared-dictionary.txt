@@ -45,6 +45,7 @@ globby
 grunt-markdownlint
 h1
 h2
+html_elements
 IntelliSense
 JSDoc
 JSON
