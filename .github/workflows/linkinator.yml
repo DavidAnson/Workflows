@@ -19,7 +19,7 @@ jobs:
         with:
           paths: "**/*.md"
           directoryListing: true
-          linksToSkip: "test/, ^https://github.com/.*/search\\?q="
+          linksToSkip: "test/, ^https://github.com/.*/search\\?q=, ^https://opensource.org/"
   markdownlint-cli2:
     runs-on: ubuntu-latest
     steps:
@@ -31,7 +31,7 @@ jobs:
         with:
           paths: "**/*.md"
           directoryListing: true
-          linksToSkip: "test/"
+          linksToSkip: "test/, ^https://opensource.org/"
   markdownlint-cli2-action:
     runs-on: ubuntu-latest
     steps:
