@@ -16,9 +16,9 @@ jobs:
         with:
           repository: dotnet/docs
       - name: Install markdownlint CLIs
-        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production --disable MD051 MD052 MD053
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production
       - name: Run markdownlint-cli
-        run: ./node_modules/.bin/markdownlint '**/*.md' --ignore 'samples/**/*.md' --ignore node_modules
+        run: ./node_modules/.bin/markdownlint '**/*.md' --ignore 'samples/**/*.md' --ignore node_modules --disable MD051 MD052 MD053
       - name: Run markdownlint-cli2
         run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#samples/**/*.md' '#node_modules'
       - uses: DavidAnson/markdownlint-cli2-action@v5
@@ -142,9 +142,9 @@ jobs:
       - name: Delete package.json for minimal install
         run: rm package.json
       - name: Install markdownlint CLIs
-        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production --disable MD053
+        run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production
       - name: Run markdownlint-cli
-        run: ./node_modules/.bin/markdownlint '**/*.md' --ignore node_modules
+        run: ./node_modules/.bin/markdownlint '**/*.md' --ignore node_modules --disable MD053
       - name: Run markdownlint-cli2
         run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#node_modules'
       - uses: DavidAnson/markdownlint-cli2-action@v5
