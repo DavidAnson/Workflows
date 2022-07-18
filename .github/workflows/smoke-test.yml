@@ -52,10 +52,17 @@ jobs:
         run: markdownlint README.md
       - name: Lint and fix
         run: markdownlint --fix README.md
-  markdownlint-cli2-container:
+  markdownlint-cli-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+      - name: Lint via Docker
+        run: docker run -v $PWD:/workdir ghcr.io/igorshubovych/markdownlint-cli:latest README.md
+  markdownlint-cli2-container-latest:
     runs-on: ubuntu-latest
     container:
-      image: davidanson/markdownlint-cli2:0.4.0
+      image: davidanson/markdownlint-cli2:latest
       options: -u root
     steps:
       - name: Clone repository
@@ -66,17 +73,31 @@ jobs:
         run: markdownlint-cli2-fix README.md
       - name: Lint with config
         run: markdownlint-cli2-config configuration/.markdownlint-cli2.jsonc README.md
-  markdownlint-cli-docker:
+  markdownlint-cli2-container-next:
+    runs-on: ubuntu-latest
+    container:
+      image: davidanson/markdownlint-cli2:next
+      options: -u root
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+      - name: Lint
+        run: markdownlint-cli2 README.md
+      - name: Lint and fix
+        run: markdownlint-cli2-fix README.md
+      - name: Lint with config
+        run: markdownlint-cli2-config configuration/.markdownlint-cli2.jsonc README.md
+  markdownlint-cli2-docker-latest:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
         uses: actions/checkout@v3
       - name: Lint via Docker
-        run: docker run -v $PWD:/workdir ghcr.io/igorshubovych/markdownlint-cli:latest README.md
-  markdownlint-cli2-docker:
+        run: docker run -v $PWD:/workdir davidanson/markdownlint-cli2:latest README.md
+  markdownlint-cli2-docker-next:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
         uses: actions/checkout@v3
       - name: Lint via Docker
-        run: docker run -v $PWD:/workdir davidanson/markdownlint-cli2:0.4.0 README.md
+        run: docker run -v $PWD:/workdir davidanson/markdownlint-cli2:next README.md
