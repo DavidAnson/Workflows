@@ -20,7 +20,7 @@ jobs:
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint '**/*.md' --ignore 'samples/**/*.md' --ignore node_modules --disable MD051 MD052 MD053
       - name: Run markdownlint-cli2
-        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#samples/**/*.md' '#node_modules'
+        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#samples/**/*.md' '#node_modules' '#.github'
       - uses: DavidAnson/markdownlint-cli2-action@v6
         with:
           globs: |
@@ -146,7 +146,7 @@ jobs:
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint '**/*.md' --ignore node_modules --disable MD053
       - name: Run markdownlint-cli2
-        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#node_modules'
+        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#node_modules' '#.vale'
       - uses: DavidAnson/markdownlint-cli2-action@v6
         with:
           globs: |
