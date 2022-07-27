@@ -60,7 +60,6 @@ jobs:
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production
       - name: Update configuration file
         run: |
-          cat .markdownlintrc
           npx --yes strip-json-comments-cli .markdownlintrc > .markdownlintrc
           cat .markdownlintrc
           echo "$(jq '. += { "link-image-reference-definitions": false }' .markdownlintrc)" > .markdownlintrc
