@@ -54,6 +54,9 @@ jobs:
           repository: mkdocs/mkdocs
       - name: Install markdownlint CLIs
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production
+      - name: Update configuration file
+        run: |
+          echo "$(jq '. += { "link-image-reference-definitions": false }' .markdownlintrc)" > .markdownlintrc
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint README.md CONTRIBUTING.md 'docs/*' --ignore docs/CNAME --ignore node_modules --disable MD053
       - name: Clone configuration file
@@ -77,6 +80,9 @@ jobs:
           repository: mochajs/mocha
       - name: Install markdownlint CLIs
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+      - name: Update configuration file
+        run: |
+          echo "$(jq '. += { "link-fragments": false, "link-image-reference-definitions": false }' .markdownlint.json)" > .markdownlint.json
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint '*.md' 'docs/**/*.md' '.github/*.md' 'lib/**/*.md' 'test/**/*.md' 'example/**/*.md' --ignore node_modules
       - name: Run markdownlint-cli2
