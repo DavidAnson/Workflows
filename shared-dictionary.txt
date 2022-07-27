@@ -29,6 +29,7 @@ CustomRules
 CVE-2022-21670
 davidanson
 docs-util
+dotfiles
 ES2015
 ES6
 ESLint
