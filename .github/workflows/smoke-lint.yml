@@ -36,6 +36,10 @@ jobs:
           repository: eslint/eslint
       - name: Install markdownlint CLIs
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+      - name: Update configuration file
+        run: |
+          echo 'link-fragments: false' >> .markdownlint.yml
+          echo 'link-image-reference-definitions: false' >> .markdownlint.yml
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint 'docs/**/*.md' --ignore node_modules
       - name: Run markdownlint-cli2
@@ -56,6 +60,7 @@ jobs:
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production
       - name: Update configuration file
         run: |
+          cat .markdownlintrc | jsmin > .markdownlintrc
           echo "$(jq '. += { "link-image-reference-definitions": false }' .markdownlintrc)" > .markdownlintrc
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint README.md CONTRIBUTING.md 'docs/*' --ignore docs/CNAME --ignore node_modules --disable MD053
