@@ -60,7 +60,7 @@ jobs:
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock --production
       - name: Update configuration file
         run: |
-          cat .markdownlintrc | jsmin > .markdownlintrc
+          npx strip-json-comments-cli .markdownlintrc > .markdownlintrc
           echo "$(jq '. += { "link-image-reference-definitions": false }' .markdownlintrc)" > .markdownlintrc
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint README.md CONTRIBUTING.md 'docs/*' --ignore docs/CNAME --ignore node_modules --disable MD053
