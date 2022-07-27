@@ -120,12 +120,15 @@ jobs:
         run: rm package.json
       - name: Install markdownlint CLIs
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
+      - name: Update configuration file
+        run: |
+          echo "$(jq '. += { "link-image-reference-definitions": false }' .markdownlintrc)" > .markdownlintrc
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint '**/*.md' --ignore '**/CHANGELOG.md' --ignore node_modules --disable MD053
       - name: Clone configuration file
         run: cp .markdownlintrc .markdownlint.jsonc
       - name: Run markdownlint-cli2
-        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#**/CHANGELOG.md' '#node_modules'
+        run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#**/CHANGELOG.md' '#node_modules' '#.github'
       - uses: DavidAnson/markdownlint-cli2-action@v6
         with:
           globs: |
@@ -163,7 +166,7 @@ jobs:
         run: npm install markdownlint-cli markdownlint-cli2 --no-package-lock
       - name: Update configuration file
         run: |
-          echo "$(jq '. += { "emphasis-style": false; "link-fragments": false; "link-image-reference-definitions": false }' .markdownlint.json)" > .markdownlint.json
+          echo "$(jq '. += { "emphasis-style": false, "link-fragments": false, "link-image-reference-definitions": false }' .markdownlint.json)" > .markdownlint.json
       - name: Run markdownlint-cli
         run: ./node_modules/.bin/markdownlint 'src/**/*.md' --ignore node_modules
       - name: Run markdownlint-cli2
