@@ -57,6 +57,7 @@ JUnit
 kramdown
 linter
 linter-node-markdownlint
+Lombiq
 macOS
 markdownlint
 markdownlint-cli
@@ -78,6 +79,7 @@ MDN
 minified
 minimatch
 MkDocs
+MSBuild
 namespace
 Neovim
 no-bare-urls
