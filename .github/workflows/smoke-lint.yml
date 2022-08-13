@@ -26,6 +26,7 @@ jobs:
           globs: |
             **/*.md
             !samples/**/*.md
+            !docs/standard/base-types/composite-formatting.md
             !node_modules
   eslint-eslint:
     runs-on: ubuntu-latest
