@@ -28,6 +28,7 @@ jobs:
             !samples/**/*.md
             !docs/standard/base-types/composite-formatting.md
             !node_modules
+            !.github
   eslint-eslint:
     runs-on: ubuntu-latest
     steps:
@@ -116,7 +117,7 @@ jobs:
         run: ./node_modules/.bin/markdownlint '**/*.md' --ignore node_modules --disable MD051 MD053
       - name: Run markdownlint-cli2
         run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#node_modules'
-      - uses: DavidAnson/markdownlint-cli2-action@v7
+      - uses: DavidAnson/markdownlint-cli2-action@v6
         with:
           globs: |
             **/*.md
@@ -141,7 +142,7 @@ jobs:
         run: cp .markdownlintrc .markdownlint.jsonc
       - name: Run markdownlint-cli2
         run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#**/CHANGELOG.md' '#node_modules' '#.github'
-      - uses: DavidAnson/markdownlint-cli2-action@v7
+      - uses: DavidAnson/markdownlint-cli2-action@v6
         with:
           globs: |
             **/*.md
@@ -162,7 +163,7 @@ jobs:
         run: ./node_modules/.bin/markdownlint '**/*.md' --ignore node_modules --disable MD053
       - name: Run markdownlint-cli2
         run: ./node_modules/.bin/markdownlint-cli2 '**/*.md' '#node_modules' '#.vale'
-      - uses: DavidAnson/markdownlint-cli2-action@v7
+      - uses: DavidAnson/markdownlint-cli2-action@v6
         with:
           globs: |
             **/*.md
