@@ -1,3 +1,4 @@
 markdownlint-cli2/markdownlint-cli2-junit.xml
 markdownlint-cli2/markdownlint-cli2-results.json
 node_modules
+# Artificial repository activity to keep workflows running
