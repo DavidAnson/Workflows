@@ -87,6 +87,8 @@ jobs:
         run: markdownlint-cli2-fix README.md
       - name: Lint with config
         run: markdownlint-cli2-config configuration/.markdownlint-cli2.jsonc README.md
+      - name: Lint using output formatters
+        run: cd markdownlint-cli2 && markdownlint-cli2 ../README.md
   markdownlint-cli2-docker-latest:
     runs-on: ubuntu-latest
     steps:
