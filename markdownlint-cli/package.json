@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "markdownlint-cli": "*"
+  },
+  "scripts": {
+    "test": "markdownlint ../README.md && markdownlint --fix ../README.md"
+  },
+  "private": true
+}

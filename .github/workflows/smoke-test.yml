@@ -19,6 +19,28 @@ jobs:
         run: cd markdownlint && npm install --no-package-lock --production
       - name: Run Tests
         run: cd markdownlint && npm run test
+  markdownlint-cli:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+      - name: Install Dependencies
+        run: cd markdownlint-cli && npm install --no-package-lock --production
+      - name: Run Tests
+        run: cd markdownlint-cli && npm run test
+  markdownlint-cli-global:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+      - name: Install Dependencies
+        run: sudo npm install --global --no-package-lock --production markdownlint-cli
+      - name: Run Tests
+        run: cd markdownlint-cli && npm run test
   markdownlint-cli2:
     runs-on: ubuntu-latest
     steps:
