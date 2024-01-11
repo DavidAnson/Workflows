@@ -92,9 +92,9 @@ jobs:
       - name: Lint
         run: markdownlint-cli2 README.md
       - name: Lint and fix
-        run: markdownlint-cli2-fix README.md
+        run: markdownlint-cli2 --fix README.md
       - name: Lint with config
-        run: markdownlint-cli2-config configuration/.markdownlint-cli2.jsonc README.md
+        run: markdownlint-cli2 --config configuration/.markdownlint-cli2.jsonc README.md
   markdownlint-cli2-container-next:
     runs-on: ubuntu-latest
     container:
@@ -106,9 +106,9 @@ jobs:
       - name: Lint
         run: markdownlint-cli2 README.md
       - name: Lint and fix
-        run: markdownlint-cli2-fix README.md
+        run: markdownlint-cli2 --fix README.md
       - name: Lint with config
-        run: markdownlint-cli2-config configuration/.markdownlint-cli2.jsonc README.md
+        run: markdownlint-cli2 --config configuration/.markdownlint-cli2.jsonc README.md
       - name: Lint using output formatters
         run: cd markdownlint-cli2 && markdownlint-cli2 ../README.md
   markdownlint-cli2-docker-latest:
