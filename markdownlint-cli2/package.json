@@ -7,7 +7,7 @@
     "markdownlint-cli2-formatter-summarize": "*"
   },
   "scripts": {
-    "test": "markdownlint-cli2 ../README.md && markdownlint-cli2 --fix ../README.md"
+    "test": "markdownlint-cli2 ../README.md && markdownlint-cli2 --fix ../README.md && markdownlint-cli2 --config ../configuration/.markdownlint-cli2.jsonc ../README.md"
   },
   "private": true
 }
