@@ -3,7 +3,7 @@
     "markdownlint": "*"
   },
   "scripts": {
-    "test": "node smoke-test.js"
+    "test": "node smoke-test.mjs"
   },
   "private": true
 }
