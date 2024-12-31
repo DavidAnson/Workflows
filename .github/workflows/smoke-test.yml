@@ -36,8 +36,18 @@ jobs:
         uses: actions/checkout@v4
       - name: Use Node.js
         uses: actions/setup-node@v4
-      - name: Install Dependencies
+      - name: Install Dependencies (npm)
         run: cd markdownlint-cli && npm install --no-package-lock --production
+      - name: Run Tests
+        run: cd markdownlint-cli && npm run test
+      - name: Clean Repository
+        run: git clean -dfx
+      - name: Use pnpm latest
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - name: Install Dependencies (pnpm)
+        run: cd markdownlint-cli && pnpm install
       - name: Run Tests
         run: cd markdownlint-cli && npm run test
   markdownlint-cli-global:
@@ -58,8 +68,18 @@ jobs:
         uses: actions/checkout@v4
       - name: Use Node.js
         uses: actions/setup-node@v4
-      - name: Install Dependencies
+      - name: Install Dependencies (npm)
         run: cd markdownlint-cli2 && npm install --no-package-lock --production
+      - name: Run Tests
+        run: cd markdownlint-cli2 && npm run test
+      - name: Clean Repository
+        run: git clean -dfx
+      - name: Use pnpm latest
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - name: Install Dependencies (pnpm)
+        run: cd markdownlint-cli2 && pnpm install
       - name: Run Tests
         run: cd markdownlint-cli2 && npm run test
   markdownlint-cli2-global:
