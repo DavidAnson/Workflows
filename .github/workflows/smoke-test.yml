@@ -15,8 +15,18 @@ jobs:
         uses: actions/checkout@v4
       - name: Use Node.js
         uses: actions/setup-node@v4
-      - name: Install Dependencies
+      - name: Install Dependencies (npm)
         run: cd markdownlint && npm install --no-package-lock --production
+      - name: Run Tests
+        run: cd markdownlint && npm run test
+      - name: Clean Repository
+        run: git clean -dfx
+      - name: Use pnpm latest
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - name: Install Dependencies (pnpm)
+        run: cd markdownlint && pnpm install
       - name: Run Tests
         run: cd markdownlint && npm run test
   markdownlint-cli:
