@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Use Node.js
         uses: actions/setup-node@v4
       - name: Install Dependencies (npm)
@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Use Node.js
         uses: actions/setup-node@v4
       - name: Install Dependencies (npm)
@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Use Node.js
         uses: actions/setup-node@v4
       - name: Install Dependencies
@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Use Node.js
         uses: actions/setup-node@v4
       - name: Install Dependencies (npm)
@@ -86,7 +86,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Use Node.js
         uses: actions/setup-node@v4
       - name: Install Dependencies
@@ -99,7 +99,7 @@ jobs:
       image: ghcr.io/igorshubovych/markdownlint-cli:latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Lint
         run: markdownlint README.md
       - name: Lint and fix
@@ -108,7 +108,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Lint via Docker
         run: docker run -v $PWD:/workdir ghcr.io/igorshubovych/markdownlint-cli:latest README.md
       - name: Lint and fix via Docker
@@ -120,7 +120,7 @@ jobs:
       options: -u root
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Lint
         run: markdownlint-cli2 README.md
       - name: Lint and fix
@@ -134,7 +134,7 @@ jobs:
       options: -u root
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Lint
         run: markdownlint-cli2 README.md
       - name: Lint and fix
@@ -147,7 +147,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Lint via Docker
         run: docker run -v $PWD:/workdir davidanson/markdownlint-cli2:latest README.md
       - name: Lint and fix via Docker
@@ -164,7 +164,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Lint via Docker
         run: docker run -v $PWD:/workdir davidanson/markdownlint-cli2:next README.md
       - name: Lint and fix via Docker
