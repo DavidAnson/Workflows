@@ -10,9 +10,11 @@ on:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
     steps:
     - uses: actions/checkout@v5
-    - run: gh cache delete --all
+    - run: gh cache delete --all --succeed-on-no-caches
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/setup-python@v6
