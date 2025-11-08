@@ -13,6 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v5
     - run: gh cache delete --all
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/setup-python@v6
     # - uses: pre-commit/action@v3.0.1
     #   with:
