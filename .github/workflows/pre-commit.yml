@@ -13,7 +13,7 @@ jobs:
     permissions:
       actions: write
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - run: gh cache delete --all --succeed-on-no-caches
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -21,7 +21,7 @@ jobs:
     needs: reset-cache
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - uses: actions/setup-python@v6
     - uses: pre-commit/action@v3.0.1
       with:
