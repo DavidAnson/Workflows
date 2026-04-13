@@ -22,7 +22,7 @@ jobs:
       - name: Clean Repository
         run: git clean -dfx
       - name: Use pnpm latest
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@v6
         with:
           version: latest
       - name: Install Dependencies (pnpm)
@@ -43,7 +43,7 @@ jobs:
       - name: Clean Repository
         run: git clean -dfx
       - name: Use pnpm latest
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@v6
         with:
           version: latest
       - name: Install Dependencies (pnpm)
@@ -75,7 +75,7 @@ jobs:
       - name: Clean Repository
         run: git clean -dfx
       - name: Use pnpm latest
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@v6
         with:
           version: latest
       - name: Install Dependencies (pnpm)
