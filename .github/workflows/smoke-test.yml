@@ -24,7 +24,7 @@ jobs:
       - name: Use pnpm latest
         uses: pnpm/action-setup@v6
         with:
-          version: latest
+          version: 11.11
       - name: Install Dependencies (pnpm)
         run: cd markdownlint && pnpm install
       - name: Run Tests
@@ -45,7 +45,7 @@ jobs:
       - name: Use pnpm latest
         uses: pnpm/action-setup@v6
         with:
-          version: latest
+          version: 11.11
       - name: Install Dependencies (pnpm)
         run: cd markdownlint-cli && pnpm install
       - name: Run Tests
@@ -77,7 +77,7 @@ jobs:
       - name: Use pnpm latest
         uses: pnpm/action-setup@v6
         with:
-          version: latest
+          version: 11.11
       - name: Install Dependencies (pnpm)
         run: cd markdownlint-cli2 && pnpm install
       - name: Run Tests
